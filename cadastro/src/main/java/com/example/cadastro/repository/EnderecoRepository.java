@@ -5,21 +5,14 @@
  */
 package com.example.cadastro.repository;
 
-import com.example.cadastro.model.Cliente;
 import com.example.cadastro.model.Endereco;
-import java.util.List;
 import java.util.Set;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 
-/**
- *
- * @author maris
- */
 public interface EnderecoRepository extends JpaRepository<Endereco, Long> {
     
     Set<Endereco> findByClienteId(Long clienteId);
     
-    public Set<Endereco> findByEndereco(String endereco);
+    Set<Endereco> findByEndereco(String endereco);
     
 }

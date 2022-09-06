@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.example.cadastro.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -22,10 +17,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/**
- *
- * @author maris
- */
 @Entity
 @Table(name = "cliente")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -47,7 +38,6 @@ public class Cliente implements Serializable {
     @Column(name = "cpf", nullable = false, unique = true)
     private String cpf; //obrigatorio
 
-    //private Endereco endereco;
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Endereco> endereco;
 

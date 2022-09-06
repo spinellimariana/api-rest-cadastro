@@ -2,7 +2,6 @@ package com.example.cadastro.service;
 
 import java.util.Optional;
 import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.cadastro.exception.NotFoundException;
@@ -12,7 +11,6 @@ import com.example.cadastro.model.Parametros;
 import com.example.cadastro.repository.ClienteRepository;
 import com.example.cadastro.repository.EnderecoRepository;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -38,11 +36,12 @@ public class ClienteService {
         String cNome = parametros.getNome();
         String cCpf = parametros.getCpf();
         String cEndereco = parametros.getEndereco();
+               
+       //List<Cliente> cliente = clienteRepository.search(cNome, cCpf, cEndereco);
         
         Cliente cli = new Cliente();
 
         List<Cliente> cliente = new ArrayList();
-        //List<Endereco> endereco = new ArrayList();
 
         if (!cCpf.isBlank() || !cCpf.isEmpty()) {
             List<Cliente> clienteCpf = clienteRepository.findByCpf(cCpf);
@@ -57,10 +56,6 @@ public class ClienteService {
         if (!cEndereco.isBlank() || !cEndereco.isEmpty()) {
             Set<Endereco> clienteEndereco = enderecoRepository.findByEndereco(cEndereco);
             cli.setEndereco(clienteEndereco);
-            cli.getId();
-            cli.getNome();
-            cli.getEndereco();
-            cli.getCpf();
             cliente.add(cli);
         }
 
