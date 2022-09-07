@@ -4,7 +4,6 @@ import com.example.cadastro.model.Cliente;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
@@ -23,6 +22,9 @@ LIKE %?1% AND cliente.cpf LIKE %?2% AND endereco.endereco LIKE %?3%;
 //            + "WHERE c.nome LIKE ?1 OR c.cpf = ?2 OR e.endereco LIKE ?3", nativeQuery = true)
 //    public List<Cliente> search(String nome, String cpf, String endereco);
 
+    
+    //COMENTÁRIOS: tentei fazer da maneira acima, que julgo ser mais correta, mas a query não funcionou
+    
     public List<Cliente> findByCpf(String cpf);
 
     public List<Cliente> findByNome(String nome);

@@ -38,6 +38,9 @@ public class ClienteService {
         String cEndereco = parametros.getEndereco();
                
        //List<Cliente> cliente = clienteRepository.search(cNome, cCpf, cEndereco);
+       //Tentei fazer da forma acima mas a query não funcionou
+       
+       //A forma abaixo foi a que melhor retornou, embora tenha problemas.
         
         Cliente cli = new Cliente();
 
